@@ -1,0 +1,15 @@
+[Unit]
+Description=Telegram Bot Admin Service
+After=network.target
+Requires=telegram-bot.service
+
+[Service]
+User=telegram-bot
+WorkingDirectory=/www/telegram-bot
+ExecStart=/www/telegram-bot/venv/bin/python bot.py /www/telegram-bot/admin.py
+Restart=always
+Environment=TELEGRAM_BOT_TOKEN=7988564533:AAFcVl6nUY-jRYhfpBORvRpC_An0WLSa4CY
+Environment=ADMIN_PASSWORD=your_password
+
+[Install]
+WantedBy=multi-user.target
